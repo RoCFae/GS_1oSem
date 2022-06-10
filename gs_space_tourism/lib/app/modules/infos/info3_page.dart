@@ -1,29 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:gs_space_tourism/app/modules/drones/drones_page.dart';
+import 'package:gs_space_tourism/app/modules/home/home_page.dart';
 import 'package:gs_space_tourism/app/modules/infos/info1_page.dart';
 
 import '../../../utils/ui_text.dart';
 import '../../components/buttons.dart';
 import '../../components/page.dart';
-import '../home/home_page.dart';
 
-class DronePage extends StatelessWidget {
+class InfoPage3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StandardPage(
-      pageTile: drones,
+      pageTile: difficultsSpace,
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(36.0),
-              child: Image.asset(
-                'assets/images/drone.jpg',
-                fit: BoxFit.cover,
-                width: double.infinity,
-              ),
-            ),
             const Text(
-              droneText,
+              difficultsSpaceText,
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Color.fromARGB(255, 0, 0, 0),
@@ -33,7 +26,21 @@ class DronePage extends StatelessWidget {
               height: 35.0,
             ),
             DefaultButton(
-              buttonText: nextPage,
+              buttonText: home,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => HomePage()),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(
+              height: 25.0,
+            ),
+            DefaultButton(
+              buttonText: previusPage,
               onPressed: () {
                 Navigator.push(
                   context,
@@ -42,6 +49,9 @@ class DronePage extends StatelessWidget {
                   ),
                 );
               },
+            ),
+            const SizedBox(
+              height: 15.0,
             ),
           ],
         ),

@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:gs_space_tourism/app/modules/drones/drones_page.dart';
+import 'package:gs_space_tourism/app/modules/travels/travels_page.dart';
 
 import '../../../utils/ui_text.dart';
 import '../../components/cards.dart';
 import '../../components/page.dart';
+
+Widget _buildPopupDialog(BuildContext context) {
+  return  AlertDialog(
+    title: const Text(devs),
+    content: Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: const <Widget>[
+         Text(devsText),
+      ],
+    ),
+  );
+}
 
 class HomePage extends StatelessWidget {
   @override
@@ -14,33 +29,45 @@ class HomePage extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () {
-                //Criar a listagem de Viagens -> TODO
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: ((context) => ),
-                //   ),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => const TravelPage()),
+                  ),
+                );
               },
               child: HomeCard(
                 text: travels,
               ),
             ),
             const SizedBox(
-              height: 25.0,
+              height: 32.0,
             ),
             GestureDetector(
               onTap: () {
-                //Criar a pagina dos drones -> TODO
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: ((context) => ),
-                //   ),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => DronePage()),
+                  ),
+                );
               },
               child: HomeCard(
-                text: drones,
+                text: infos,
+              ),
+            ),
+            const SizedBox(
+              height: 32.0,
+            ),
+            GestureDetector(
+              onTap: () {
+                showDialog(
+              context: context,
+              builder: (BuildContext context) => _buildPopupDialog(context),
+            );
+              },
+              child: HomeCard(
+                text: devs,
               ),
             ),
           ],

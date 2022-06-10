@@ -22,6 +22,11 @@ class HomeCard extends StatelessWidget {
             padding: const EdgeInsets.all(16.0),
             child: Text(
               text!,
+              style: const TextStyle(
+              fontSize: 20.0,
+              color: Color.fromARGB(255, 206, 206, 206),
+              fontWeight: FontWeight.bold,
+            ),
             ),
           ),
         ],
@@ -46,7 +51,7 @@ class TravelCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           ListTile(
-            leading: Icon(Icons.album),
+            leading: const Icon(Icons.airplane_ticket),
             title: Text(title!),
             subtitle: Text(description!),
           ),

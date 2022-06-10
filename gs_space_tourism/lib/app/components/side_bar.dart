@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gs_space_tourism/app/modules/drones/drones_page.dart';
+import 'package:gs_space_tourism/app/modules/travels/travels_page.dart';
 import 'package:gs_space_tourism/utils/export.dart';
 
 import '../modules/home/home_page.dart';
@@ -12,8 +14,8 @@ class NavBar extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           const UserAccountsDrawerHeader(
-            accountName: Text('Account Name', style: TextStyle(color: Color.fromARGB(255, 253, 188, 51)),),
-            accountEmail: Text('account.email@gmail.com', style: TextStyle(color: Color.fromARGB(255, 253, 188, 51)),),
+            accountName: Text('Account Name', style: TextStyle(color: Color.fromARGB(255, 194, 194, 194)),),
+            accountEmail: Text('account.email@gmail.com', style: TextStyle(color: Color.fromARGB(255, 194, 194, 194)),),
             currentAccountPicture: CircleAvatar(
               backgroundColor: Color.fromARGB(255, 15, 19, 60),
               child: ClipOval(
@@ -41,29 +43,27 @@ class NavBar extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.airplane_ticket),
             title: const Text(travels),
-            // Fazer a lista de tickets -> TODO
-            // onTap: () {
-            //   Navigator.push(
-            //     context,
-            //     MaterialPageRoute(
-            //       builder: ((context) => const ()),
-            //     ),
-            //   );
-            // },
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: ((context) => const TravelPage()),
+                ),
+              );
+            },
           ),
           const Divider(),
           ListTile(
             leading: const Icon(Icons.info),
-            title: const Text(drones),
-            //Fazer a tela de Drones -> TODO
-            // onTap: () {
-            //   Navigator.push(
-            //       context,
-            //       MaterialPageRoute(
-            //         builder: ((context) => ()),
-            //       ),
-            //     );
-            // },
+            title: const Text(infos),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => DronePage()),
+                  ),
+                );
+            },
           ),
           const Divider(),
           ListTile(
